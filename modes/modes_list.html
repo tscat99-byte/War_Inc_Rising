@@ -6,50 +6,51 @@
     <title>遊戲模式</title>
     <link rel="stylesheet" href="../assets/css/style.css"> 
     <style>
-        /* 頁面專屬樣式，確保模式區塊正確顯示 */
-        
-        /* 1. 表格響應式修正：確保表格在手機上可以橫向滾動 */
-        .stats-table-container {
-            overflow-x: auto; 
-            -webkit-overflow-scrolling: touch; 
-        }
-        
-        /* 🚀 關鍵修正：強制表格佈局並設定欄寬，避免文字擠壓 */
-        .stats-table table {
-            min-width: 350px; 
-            width: 100%; 
-            table-layout: fixed; /* 確保列寬設定生效 */
-        }
-        
-        /* 🚀 關鍵修正：定義兩欄寬度比例 */
-        .stats-table th:first-child, .stats-table td:first-child {
-            width: 30%; /* 「特色」欄位 */
-            word-break: break-all; /* 確保在極端情況下長單字也能斷行 */
-        }
-        .stats-table th:last-child, .stats-table td:last-child {
-            width: 70%; /* 「說明」欄位 */
-            word-break: break-word; 
-        }
+    /* 頁面專屬樣式，確保模式區塊正確顯示 */
+    
+    /* 1. 表格響應式修正：移除橫向滾動 (關鍵修正) */
+    .stats-table-container {
+        /* 移除 overflow-x: auto; 或保留但無效，因為我們移除 min-width 讓表格收縮 */
+        overflow-x: hidden; /* 確保沒有橫向滾動條 */
+        -webkit-overflow-scrolling: touch; 
+    }
+    
+    /* 🚀 關鍵修正：強制表格佈局並移除最小寬度限制 */
+    .stats-table table {
+        /* 移除 min-width: 350px; */
+        width: 100%; 
+        table-layout: fixed; /* 確保列寬設定生效 */
+    }
+    
+    /* 🚀 關鍵修正：定義兩欄寬度比例，解決文字擠壓和串聯問題 */
+    .stats-table th:first-child, .stats-table td:first-child {
+        width: 30%; /* 「特色」欄位佔 30% */
+        word-break: break-all; 
+    }
+    .stats-table th:last-child, .stats-table td:last-child {
+        width: 70%; /* 「說明」欄位佔 70% */
+        word-break: break-word; 
+    }
 
-        /* 2. 模式區塊主樣式 (確保與 building_list.html 視覺一致) */
-        .mode-detail-section {
-            margin-bottom: 30px;
-            padding: 30px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9; 
-        }
-        
-        /* 3. 標題樣式覆蓋：精確修正 H2 在區塊內的顯示問題 */
-        .mode-detail-section h2 {
-            color: var(--color-primary); 
-            margin-top: 0; 
-            margin-bottom: 15px; 
-            padding-bottom: 0; 
-            border-bottom: none; 
-            font-size: 1.8em; 
-        }
-    </style>
+    /* 2. 模式區塊主樣式 (保持不變) */
+    .mode-detail-section {
+        margin-bottom: 30px;
+        padding: 30px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9; 
+    }
+    
+    /* 3. 標題樣式覆蓋 (保持不變) */
+    .mode-detail-section h2 {
+        color: var(--color-primary); 
+        margin-top: 0; 
+        margin-bottom: 15px; 
+        padding-bottom: 0; 
+        border-bottom: none; 
+        font-size: 1.8em; 
+    }
+</style>
 </head>
 <body>
     
@@ -290,4 +291,5 @@
 
     <script src="../assets/js/app.js"></script>
 </body>
+
 </html>
