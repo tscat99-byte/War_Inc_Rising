@@ -8,10 +8,11 @@
     <style>
     /* 頁面專屬樣式，確保模式區塊正確顯示 */
     
-    /* 1. 表格響應式修正：移除橫向滾動 (關鍵修正) */
+    /* 1. 表格響應式修正：移除橫向滾動 */
     .stats-table-container {
-        /* 移除 overflow-x: auto; 或保留但無效，因為我們移除 min-width 讓表格收縮 */
-        overflow-x: hidden; /* 確保沒有橫向滾動條 */
+        /* 移除原有的 overflow-x: auto; 以防止滑動 */
+        /* 若仍有滑動，可以明確設定為 hidden */
+        overflow-x: hidden; 
         -webkit-overflow-scrolling: touch; 
     }
     
@@ -25,14 +26,14 @@
     /* 🚀 關鍵修正：定義兩欄寬度比例，解決文字擠壓和串聯問題 */
     .stats-table th:first-child, .stats-table td:first-child {
         width: 30%; /* 「特色」欄位佔 30% */
-        word-break: break-all; 
+        word-break: break-all; /* 確保長標題能斷行 */
     }
     .stats-table th:last-child, .stats-table td:last-child {
         width: 70%; /* 「說明」欄位佔 70% */
-        word-break: break-word; 
+        word-break: break-word; /* 確保長描述能斷行 */
     }
 
-    /* 2. 模式區塊主樣式 (保持不變) */
+    /* 2. 模式區塊主樣式 */
     .mode-detail-section {
         margin-bottom: 30px;
         padding: 30px;
@@ -41,7 +42,7 @@
         background-color: #f9f9f9; 
     }
     
-    /* 3. 標題樣式覆蓋 (保持不變) */
+    /* 3. 標題樣式覆蓋 */
     .mode-detail-section h2 {
         color: var(--color-primary); 
         margin-top: 0; 
@@ -293,3 +294,4 @@
 </body>
 
 </html>
+
